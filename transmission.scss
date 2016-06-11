@@ -1,0 +1,669 @@
+$url_icon_open: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMjAgNmgtOGwtMi0ySDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjhjMC0xLjEtLjktMi0yLTJ6bTAgMTJINFY4aDE2djEweiIvPjwvc3ZnPg==);
+
+$url_icon_add: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTMgN2gtMnY0SDd2Mmg0djRoMnYtNGg0di0yaC00Vjd6bS0xLTVDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIvPjwvc3ZnPg==);
+
+$url_icon_delete: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTYgMTljMCAxLjEuOSAyIDIgMmg4YzEuMSAwIDItLjkgMi0yVjdINnYxMnpNMTkgNGgtMy41bC0xLTFoLTVsLTEgMUg1djJoMTRWNHoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+
+$url_icon_remove: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNNyAxMXYyaDEwdi0ySDd6bTUtOUM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+);
+
+$url_icon_start: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTAgMTYuNWw2LTQuNS02LTQuNXY5ek0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHoiLz48L3N2Zz4=);
+
+$url_icon_pause: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNmgyVjhIOXY4em0zLTE0QzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMS00aDJWOGgtMnY4eiIvPjwvc3ZnPg==);
+
+$url_icon_start_all: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTIgMTQuNXYtOWw2IDQuNS02IDQuNXoiLz48L3N2Zz4=);
+
+$url_icon_pause_all: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTRIOVY4aDJ2OHptNCAwaC0yVjhoMnY4eiIvPjwvc3ZnPg==);
+
+$url_icon_info: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTEgMTdoMnYtNmgtMnY2em0xLTE1QzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHpNMTEgOWgyVjdoLTJ2MnoiLz48L3N2Zz4=);
+
+$url_icon_upload: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNmg2di02aDRsLTctNy03IDdoNHptLTQgMmgxNHYySDV6Ii8+PC9zdmc+);
+
+$url_icon_download: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+
+$url_icon_peers: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTYuNSAxM2MtMS4yIDAtMy4wNy4zNC00LjUgMS0xLjQzLS42Ny0zLjMtMS00LjUtMUM1LjMzIDEzIDEgMTQuMDggMSAxNi4yNVYxOWgyMnYtMi43NWMwLTIuMTctNC4zMy0zLjI1LTYuNS0zLjI1em0tNCA0LjVoLTEwdi0xLjI1YzAtLjU0IDIuNTYtMS43NSA1LTEuNzVzNSAxLjIxIDUgMS43NXYxLjI1em05IDBIMTR2LTEuMjVjMC0uNDYtLjItLjg2LS41Mi0xLjIyLjg4LS4zIDEuOTYtLjUzIDMuMDItLjUzIDIuNDQgMCA1IDEuMjEgNSAxLjc1djEuMjV6TTcuNSAxMmMxLjkzIDAgMy41LTEuNTcgMy41LTMuNVM5LjQzIDUgNy41IDUgNCA2LjU3IDQgOC41IDUuNTcgMTIgNy41IDEyem0wLTUuNWMxLjEgMCAyIC45IDIgMnMtLjkgMi0yIDItMi0uOS0yLTIgLjktMiAyLTJ6bTkgNS41YzEuOTMgMCAzLjUtMS41NyAzLjUtMy41UzE4LjQzIDUgMTYuNSA1IDEzIDYuNTcgMTMgOC41czEuNTcgMy41IDMuNSAzLjV6bTAtNS41YzEuMSAwIDIgLjkgMiAycy0uOSAyLTIgMi0yLS45LTItMiAuOS0yIDItMnoiLz48L3N2Zz4=);
+
+$url_icon_trackers:url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+ICAgIDxwYXRoIGQ9Ik0xNyAxNmwtNC00VjguODJDMTQuMTYgOC40IDE1IDcuMyAxNSA2YzAtMS42Ni0xLjM0LTMtMy0zUzkgNC4zNCA5IDZjMCAxLjMuODQgMi40IDIgMi44MlYxMmwtNCA0SDN2NWg1di0zLjA1bDQtNC4yIDQgNC4yVjIxaDV2LTVoLTR6Ii8+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+
+$url_icon_files: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTYgMmMtMS4xIDAtMS45OS45LTEuOTkgMkw0IDIwYzAgMS4xLjg5IDIgMS45OSAySDE4YzEuMSAwIDItLjkgMi0yVjhsLTYtNkg2em03IDdWMy41TDE4LjUgOUgxM3oiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+
+$url_icon_select: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTkgM0g1Yy0xLjExIDAtMiAuOS0yIDJ2MTRjMCAxLjEuODkgMiAyIDJoMTRjMS4xMSAwIDItLjkgMi0yVjVjMC0xLjEtLjg5LTItMi0yem0tOSAxNGwtNS01IDEuNDEtMS40MUwxMCAxNC4xN2w3LjU5LTcuNTlMMTkgOGwtOSA5eiIvPjwvc3ZnPg==);
+
+$url_icon_deselect: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDV2MTRINVY1aDE0bTAtMkg1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6Ii8+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+
+$url_icon_arrow_down: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTcuNDEgNy44NEwxMiAxMi40Mmw0LjU5LTQuNThMMTggOS4yNWwtNiA2LTYtNnoiLz4gICAgPHBhdGggZD0iTTAtLjc1aDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+);
+
+$url_icon_arrow_up: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTcuNDEgMTUuNDFMMTIgMTAuODNsNC41OSA0LjU4TDE4IDE0bC02LTYtNiA2eiIvPiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+);
+
+$url_icon_dash: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+
+$url_icon_lock: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgIDxkZWZzPiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBpZD0iYSIvPiAgICA8L2RlZnM+ICAgIDxjbGlwUGF0aCBpZD0iYiI+ICAgICAgICA8dXNlIG92ZXJmbG93PSJ2aXNpYmxlIiB4bGluazpocmVmPSIjYSIvPiAgICA8L2NsaXBQYXRoPiAgICA8cGF0aCBjbGlwLXBhdGg9InVybCgjYikiIGQ9Ik0xMiAxN2MxLjEgMCAyLS45IDItMnMtLjktMi0yLTItMiAuOS0yIDIgLjkgMiAyIDJ6bTYtOWgtMVY2YzAtMi43Ni0yLjI0LTUtNS01UzcgMy4yNCA3IDZ2Mkg2Yy0xLjEgMC0yIC45LTIgMnYxMGMwIDEuMS45IDIgMiAyaDEyYzEuMSAwIDItLjkgMi0yVjEwYzAtMS4xLS45LTItMi0yek04LjkgNmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMXMzLjEgMS4zOSAzLjEgMy4xdjJIOC45VjZ6TTE4IDIwSDZWMTBoMTJ2MTB6Ii8+PC9zdmc+);
+
+
+/*<svg fill="#000000" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">*/
+/*    <path d="M0 0h24v24H0z" fill="none"/>*/
+/*    <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>*/
+/*</svg>*/
+
+$main_color: #3F51B5;
+/*$main_color2: #283593;*/
+$main_color2: #5C6BC0;
+$accent_color: #9C27B0;
+$main_icon_color: #E8EAF6;
+$main_icon_color_h: $main_icon_color - #424242;
+$main_icon_color_s: $accent_color;
+$main_text_color: #E8EAF6;
+$main_text_color2: $main_text_color - #424242;
+
+
+$toolbar_bg: $main_color;
+$toolbar_icon_color: $main_icon_color;
+$toolbar_icon_color_h: $main_icon_color_h;
+$toolbar_divider_color: $main_icon_color_h;
+
+$statusbar_bg: $main_color;
+$statusbar_fg: $main_text_color;
+$statusbar_icon_color: $main_icon_color;
+$select_bg: $main_color2;
+$select_fg: $main_text_color;
+$text_input_bg: $main_color2;
+$text_input_fg: $main_text_color;
+
+$selected_option_bg: $main_color;
+$selected_option_fg: $main_text_color;
+
+$main_page_bg: $main_color;
+
+$torrent_info_icon_color: $main_icon_color;
+$torrent_info_icon_color_h: $main_icon_color_h;
+$torrent_info_icon_color_s: $main_icon_color_s;
+
+$global_box_shadow: none;
+
+html{
+	background-color: $main_page_bg;
+}
+
+/*******************************************************************************
+	toolbar
+*******************************************************************************/
+@mixin svg_icon($url, $color, $size){
+	mask: $url no-repeat 50% 50%;
+/*	mask-size: 36px 36px;*/
+	-webkit-mask: $url no-repeat 50% 50%;
+	-webkit-mask-size: $size $size;
+	background-image: none;
+	background-color: $color;
+}
+
+@mixin toolbar_icon($url, $color){
+	@include svg_icon($url, $color, 36px);
+}
+
+@mixin toolbar_icon($url){
+	@include svg_icon($url, $toolbar_icon_color, 36px);
+	&:hover{
+		@include svg_icon($url, $toolbar_icon_color_h, 36px);
+	}
+}
+
+@mixin statusbar_icon($url, $color){
+	@include svg_icon($url, $color, 18px);
+}
+
+@mixin statusbar_icon($url){
+	@include svg_icon($url, $statusbar_icon_color, 18px);
+}
+
+@mixin torrent_info_icon($url, $size){
+	@include svg_icon($url, $torrent_info_icon_color, $size);
+	&:hover{
+		@include svg_icon($url, $torrent_info_icon_color_h, $size);
+	}
+	&.selected{
+		@include svg_icon($url, $torrent_info_icon_color_s, $size);
+	}
+}
+
+@mixin torrent_info_icon($url){
+	@include torrent_info_icon($url, 24px);
+}
+
+div#toolbar{
+	width: 100%;
+	height: 36px;
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 0 solid $toolbar_bg;
+	background-color: $toolbar_bg;
+	background-image: none;
+}
+
+div#toolbar > *{
+	border: none;
+	padding: 0;
+	width: 36px;
+	height: 36px;
+}
+
+div#toolbar > *.disabled{
+	opacity: 0.25;
+}
+
+div#toolbar > div#toolbar-separator{
+	border: none;
+	width: 2px;
+	height: 24px;
+	margin: 6px;
+	background-color: $toolbar_divider_color;
+}
+
+div#toolbar{
+	div#toolbar-open{
+		@include toolbar_icon($url_icon_add);
+		margin-left: 4px;
+	}
+	
+	div#toolbar-remove{
+		@include toolbar_icon($url_icon_remove);
+	}
+	
+	div#toolbar-start{
+		@include toolbar_icon($url_icon_start);
+	}
+	
+	div#toolbar-pause{
+		@include toolbar_icon($url_icon_pause);
+	}
+	
+	div#toolbar-start-all{
+		@include toolbar_icon($url_icon_start_all);
+	}
+	
+	div#toolbar-pause-all{
+		@include toolbar_icon($url_icon_pause_all);
+	}
+	
+	div#toolbar-inspector{
+		@include toolbar_icon($url_icon_info);
+		margin-right: 4px;
+	}
+	
+}
+
+  
+/*******************************************************************************
+	statusbar
+*******************************************************************************/
+@mixin text_input_placeholder($color){
+	&::-webkit-input-placeholder{
+		color: $color;
+	}
+	
+	&::-moz-placeholder{
+		color: $color;
+	}
+	
+	&::-webkit-search-cancel-button{
+		-webkit-appearance: none;
+		background-color: $color;
+		width: 8px;
+		height: 8px;
+		border-radius: 256px;
+	}
+}
+
+@mixin box_shadow($shadow){
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+@mixin modified_selection($bg, $fg){
+	&::-webkit-selection{
+		background-color: $bg;
+		color: $fg;
+	}
+	&::-moz-selection{
+		background-color: $bg;
+		color: $fg;
+	}
+	&::selection{
+		background-color: $bg;
+		color: $fg;
+	}
+}
+
+#statusbar{
+	width: 100%;
+	height: 24px;
+	margin: 0;
+	padding: 0;
+	border-bottom: 0 solid $statusbar_bg;
+	background-color: $statusbar_bg;
+	background-image: none;
+	overflow: hidden;
+	position: relative;
+}
+
+#statusbar #filter{
+	float: left;
+	margin-left: 4px;
+	color: $statusbar_fg;
+	
+	@include modified_selection();
+	
+	select{
+		height: 18px;
+		width: 100px;
+		border: none;
+		border-radius: 0;
+		outline: none;
+		background-color: $select_bg;
+		color: $select_fg;
+		&:active, &:focus{
+			border: none;
+			border-radius: 0;
+			outline: none;
+/*			outline-color: red;*/
+			option:checked, option:hover{ 
+				background-color: $selected_option_bg;
+				color: $selected_option_fg
+			}
+		}
+	}
+	
+	input#torrent_search{
+		height: 18px;
+		width: 100px;
+		border: none;
+		border-radius: 0;
+		background-color: $text_input_bg;
+		color: $text_input_fg;
+		@include text_input_placeholder($text_input_fg);
+		@include modified_selection($text_input_fg, $text_input_bg);
+		
+		&:focus, &:active{
+			outline: none;
+		}
+	}
+	
+}
+
+#statusbar #speed-info{
+	color: $statusbar_fg;
+/*	float: right;*/
+/*	width: 200px;*/
+	height: 24px;
+	margin: 0 4px 0 0;
+/*	margin: 6px 4px 0 0;*/
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: flex-start;
+/*	position: relative;*/
+
+/*	*{*/
+/*		display: inline-block;*/
+/*	}*/
+/*	*/
+	#speed-dn-container, #speed-up-container{
+		height: 24px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: flex-start;
+	}
+
+/*	#speed-dn-label, #speed-up-label{*/
+/*		height: 18px;*/
+/*	}*/
+
+	#speed-dn-icon{
+		width: 18px;
+		height: 18px;
+		@include statusbar_icon($url_icon_download);
+	}
+	
+	#speed-up-icon{
+		width: 18px;
+		height: 18px;
+		@include statusbar_icon($url_icon_upload);
+	}
+}
+
+
+
+/*******************************************************************************
+	torrent list
+*******************************************************************************/
+$torrent_container_bg: $main_color;
+$torrent_bg: $main_color2;
+$torrent_even_bg: $main_color;
+$torrent_selected_bg: $accent_color;
+
+$torrent_icon_color: $main_icon_color;
+$torrent_icon_color_h: $main_icon_color_h;
+
+$torrent_name_fg: $main_text_color;
+$torrent_peer_details_fg: $main_text_color2;
+$torrent_progress_details_fg: $main_text_color2;
+
+$torrent_bar_complete_leeching_bg: #FFC107;
+$torrent_bar_leeching_bg: #FFA000;
+$torrent_bar_complete_seeding_bg: #2196F3;
+$torrent_bar_seeding_bg: #1976D2;
+$torrent_bar_complete_paused_bg: #673AB7;
+$torrent_bar_paused_bg: #512DA8;
+
+div#torrent_container{
+	position: fixed;
+	top: 60px;
+	bottom: 24px;
+	right: 0px;
+	left: 0px;
+	padding: 0px;
+	margin: 0px;
+	overflow: auto;
+	background-color: $torrent_container_bg;
+	border: none;
+	border-radius: 0;
+}
+
+div#torrent_container ul#torrent_list{
+	li.torrent{
+		background-color: $torrent_bg;
+		margin: 0;
+		border: none;
+		border-radius: 0;
+		
+		.torrent_name{
+			color: $torrent_name_fg;
+		}	
+		
+		.torrent_peer_details{
+			color: $torrent_peer_details_fg;
+		}
+		
+		.torrent_progress_details{
+			color: $torrent_progress_details_fg;
+		}
+		
+		a{
+			top: 2px;
+			div{
+				width: 18px;
+				height: 18px;
+			}
+		}
+		
+		.torrent_pause{
+			@include svg_icon($url_icon_pause, $torrent_icon_color, 18px);
+			&:hover{
+				@include svg_icon($url_icon_pause, $torrent_icon_color_h, 18px);
+			}
+		}
+		
+		.torrent_resume{
+			@include svg_icon($url_icon_start, $torrent_icon_color, 18px);
+			&:hover{
+				@include svg_icon($url_icon_start, $torrent_icon_color_h, 18px);
+			}
+		}
+
+		.torrent_progress_bar_container{
+			height: 18px;
+			
+			&.compact{
+				height: 18px;
+				margin-top: -1px;
+			}
+			
+			.torrent_progress_bar{
+				height: 18px;
+				background-image: none;
+				border: 0 solid #0000ff;
+				border-radius: 0;
+				
+				&.incomplete{
+					&.leeching{
+						background-color: $torrent_bar_leeching_bg;
+					}
+					
+					&.paused{
+						background-color: $torrent_bar_paused_bg;
+					}
+					
+					&.seeding{
+						background-color: $torrent_bar_seeding_bg;
+					}
+				}
+				
+				&.complete{
+					&.leeching{
+						background-color: $torrent_bar_complete_leeching_bg;
+					}
+					
+					&.paused{
+						background-color: $torrent_bar_complete_paused_bg;
+					}
+					
+					&.seeding{
+						background-color: $torrent_bar_complete_seeding_bg;
+					}
+				}
+			}
+		}
+	}
+	
+	li.even{
+		background-color: $torrent_even_bg;
+	}
+	
+	li.selected{
+		background-color: $torrent_selected_bg;
+	}
+}
+
+
+/*******************************************************************************
+	torrent info
+*******************************************************************************/
+$torrent_info_bg: $main_color;
+$torrent_info_fg: $main_text_color;
+$torrent_info_border_bg: $main_color;
+$torrent_info_header_fg: $main_text_color;
+$torrent_info_page_info_title_fg: $main_text_color;
+$torrent_info_page_info_fg: $main_text_color2;
+$torrent_info_page_peers_fg: $main_text_color2;
+$torrent_info_page_peers_columns_fg: $main_text_color;
+$torrent_info_page_peers_even_bg: $main_color2;
+$torrent_info_page_peers_odd_bg: $main_color;
+$torrent_info_page_trackers_label_fg: $main_text_color;
+$torrent_info_page_trackers_even_title: $main_text_color;
+$torrent_info_page_trackers_even_fg: $main_text_color2;
+$torrent_info_page_trackers_even_bg: $main_color2;
+$torrent_info_page_trackers_odd_title: $main_text_color;
+$torrent_info_page_trackers_odd_fg: $main_text_color2;
+$torrent_info_page_trackers_odd_bg: $main_color;
+$torrent_info_page_files_even_title: $main_text_color;
+$torrent_info_page_files_even_fg: $main_text_color2;
+$torrent_info_page_files_even_bg: $main_color2;
+$torrent_info_page_files_odd_title: $main_text_color;
+$torrent_info_page_files_odd_fg: $main_text_color2;
+$torrent_info_page_files_odd_bg: $main_color;
+
+
+div#torrent_inspector{
+	position: fixed;
+	width: 50%;
+	top: 60px;
+	bottom: 24px;
+	right: 0px;
+	text-align: left;
+	padding: 18px;
+	overflow: auto;
+	z-index: 5;
+	border-left: 4px solid $torrent_info_border_bg;
+	background-color: $torrent_info_bg;
+	color: $torrent_info_fg;
+	
+	#inspector-tabs-wrapper{
+		#inspector-tabs{
+			#inspector-tab-info{
+				@include torrent_info_icon($url_icon_info);
+			}
+			#inspector-tab-peers{
+				@include torrent_info_icon($url_icon_peers);
+			}
+			#inspector-tab-trackers{
+				@include torrent_info_icon($url_icon_trackers);
+			}
+			#inspector-tab-files{
+				@include torrent_info_icon($url_icon_files);
+			}
+		}
+	}
+	
+	#inspector_header{
+		color: $torrent_info_header_fg;
+	}
+	
+	#inspector-page-info{
+		div > .title{
+			color: $torrent_info_page_info_title_fg;
+		}
+		
+		div > .row{
+			color: $torrent_info_page_info_fg;
+		}
+	}
+	
+	#inspector-page-peers{
+		#inspector_peers_list div table tbody tr.inspector_peer_entry{
+			*{
+				color: $torrent_info_page_peers_fg;			
+			}
+			
+			&.even *{
+				background-color: $torrent_info_page_peers_even_bg;
+			}
+			
+			&.odd *{
+				background-color: $torrent_info_page_peers_odd_bg;
+			}
+			
+			.encrypted-peer-cell{
+				@include torrent_info_icon($url_icon_lock, 16px);
+			}
+			
+			th{
+				color: $torrent_info_page_peers_columns_fg;
+			}
+		}
+	}
+	
+	#inspector-page-trackers{
+		#inspector_trackers_list{
+			.inspector_group_label{
+				color: $torrent_info_page_trackers_label_fg;
+			}
+			
+			.tier_list .inspector_tracker_entry{
+				&.even{
+					background-color: $torrent_info_page_trackers_even_bg;
+					
+					.tracker_host{
+						color: $torrent_info_page_trackers_even_title;
+					}
+					
+					.tracker_activity, .tracker_stats{
+						color: $torrent_info_page_trackers_even_fg;					
+					}
+				}
+				
+				&.odd{
+					background-color: $torrent_info_page_trackers_odd_bg;
+					
+					.tracker_host{
+						color: $torrent_info_page_trackers_odd_title;
+					}
+					
+					.tracker_activity, .tracker_stats{
+						color: $torrent_info_page_trackers_odd_fg;					
+					}
+				}
+			}
+		}
+	}
+	
+/*	TODO Create some icons for select all and deselect all*/
+	#inspector-page-files{
+		#file-list-header{
+			#select-all-files{
+				@include torrent_info_icon($url_icon_select);
+				color: transparent;
+			}
+			
+			#deselect-all-files{
+				@include torrent_info_icon($url_icon_deselect);
+				color: transparent;
+			}
+		}
+		
+/*		TODO Checkbox, but the style maybe defined by the OS*/
+		#inspector_file_list{
+			border: none;
+			border-radius: 0;
+/*			TODO Make the entry list less ugly than default*/
+			.inspector_torrent_file_list_entry{
+				&.even{
+					background-color: $torrent_info_page_files_even_bg;
+					*{
+						color: $torrent_info_page_files_even_fg;					
+					}
+					.inspector_torrent_file_list_entry_name{
+/*						margin: 0 6px;*/
+						color: $torrent_info_page_files_even_title;					
+					}
+				}
+				
+				&.odd{
+					background-color: $torrent_info_page_files_odd_bg;
+					*{
+						color: $torrent_info_page_files_odd_fg;					
+					}
+					.inspector_torrent_file_list_entry_name{
+						color: $torrent_info_page_files_odd_title;					
+					}
+				}
+				
+				.file-priority-radiobox{
+					*{
+						border: none;
+						border-radius: none;
+					}
+
+					.low{
+						@include torrent_info_icon($url_icon_arrow_down);
+					}
+					
+					.normal{
+						@include torrent_info_icon($url_icon_dash);
+					}
+					
+					.high{
+						@include torrent_info_icon($url_icon_arrow_up);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
