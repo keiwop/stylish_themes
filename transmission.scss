@@ -730,21 +730,39 @@ div.torrent_footer{
 				
 		ul#settings_menu{
 			div.outerbox ul{
-				background-color: #00ff00;
+				background-color: $accent_color;
 			}
 			li#button .outerbox{
+				border: none;
+				border-radius: 0;
+
+				&.inner{
+					position: absolute;
+					top: -266px;
+					display: block;
+				}
+				
 				ul#footer_super_menu{
 					li{
-						background-color: #ffff00;
+						background-color: $accent_color;
+/*						background-color: #ff0000;*/
+						color: $main_text_color;
 /*						border: none;*/
 /*						border-radius: 0;*/
 						cursor: pointer;
+						height: 24px;
+						margin: 0;
+						padding: 0 12px !important;
+						line-height: 24px;
+						font-weight: bold;
 						
 						&.separator{
-							background-color: #ff0000;
+							background-color: $main_text_color2;
 							border: none;
 							border-radius: 0;
-							margin: 5px;
+							margin: 6px 36px;
+							padding: 0 !important;
+							height: 2px;
 						}
 					}
 				}
@@ -767,6 +785,8 @@ div.torrent_footer{
 }
 
 
+/*TODO preferences dialog*/
+/*TODO add torrent dialog*/
 
 
 

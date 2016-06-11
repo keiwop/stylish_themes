@@ -665,17 +665,34 @@ div.torrent_footer div.main_container:active {
     background-color: #9C27B0;
 }
 div.torrent_footer div.main_container ul#settings_menu div.outerbox ul {
-    background-color: #00ff00;
+    background-color: #9C27B0;
 }
-div.torrent_footer div.main_container ul#settings_menu li#button .outerbox ul#footer_super_menu li {
-    background-color: #ffff00;
-    cursor: pointer;
-}
-div.torrent_footer div.main_container ul#settings_menu li#button .outerbox ul#footer_super_menu li.separator {
-    background-color: #ff0000;
+div.torrent_footer div.main_container ul#settings_menu li#button .outerbox {
     border: none;
     border-radius: 0;
-    margin: 5px;
+}
+div.torrent_footer div.main_container ul#settings_menu li#button .outerbox.inner {
+    position: absolute;
+    top: -266px;
+    display: block;
+}
+div.torrent_footer div.main_container ul#settings_menu li#button .outerbox ul#footer_super_menu li {
+    background-color: #9C27B0;
+    color: #E8EAF6;
+    cursor: pointer;
+    height: 24px;
+    margin: 0;
+    padding: 0 12px !important;
+    line-height: 24px;
+    font-weight: bold;
+}
+div.torrent_footer div.main_container ul#settings_menu li#button .outerbox ul#footer_super_menu li.separator {
+    background-color: #a6a8b4;
+    border: none;
+    border-radius: 0;
+    margin: 6px 36px;
+    padding: 0 !important;
+    height: 2px;
 }
 div.torrent_footer #prefs-button {
     -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+ICAgIDxwYXRoIGQ9Ik0yMi43IDE5bC05LjEtOS4xYy45LTIuMy40LTUtMS41LTYuOS0yLTItNS0yLjQtNy40LTEuM0w5IDYgNiA5IDEuNiA0LjdDLjQgNy4xLjkgMTAuMSAyLjkgMTIuMWMxLjkgMS45IDQuNiAyLjQgNi45IDEuNWw5LjEgOS4xYy40LjQgMSAuNCAxLjQgMGwyLjMtMi4zYy41LS40LjUtMS4xLjEtMS40eiIvPjwvc3ZnPg==) no-repeat 50% 50%;
